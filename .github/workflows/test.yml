@@ -2,15 +2,19 @@ name: testing
 on:
   push:
     branches:
+      - main
       - osfs
   pull_request:
     branches:
+      - main
       - osfs
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+        with:
+          ref: 'osfs'
       - name: Setup Go
         uses: actions/setup-go@v3
         with:
